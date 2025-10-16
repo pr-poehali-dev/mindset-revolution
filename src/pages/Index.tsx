@@ -251,9 +251,9 @@ const Index = () => {
               <div className="relative">
                 <div className="absolute -inset-3 bg-gradient-to-br from-primary/30 to-accent/30 rounded-3xl blur-xl opacity-40" />
                 <img
-                  src="https://cdn.poehali.dev/files/9e060ad9-3d2c-4d43-9656-90dab1beaca8.jpg"
+                  src="https://cdn.poehali.dev/files/52396a75-116d-46ea-8a9f-3e1ea73ed3b2.png"
                   alt="Станислав Цыбульский"
-                  className="relative rounded-2xl shadow-2xl w-full aspect-square object-cover object-top border-4 border-white"
+                  className="relative rounded-2xl shadow-2xl w-full aspect-[3/4] object-cover object-center border-4 border-white"
                 />
               </div>
             </div>
