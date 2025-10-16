@@ -23,7 +23,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="font-heading text-2xl font-bold text-primary">ПроЖИзнь</div>
           <div className="hidden md:flex gap-6">
@@ -31,7 +31,7 @@ const Index = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase().replace(/\s+/g, '-'))}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 {item}
               </button>
@@ -99,14 +99,14 @@ const Index = () => {
               <img
                 src="https://cdn.poehali.dev/projects/fe07abdb-01e7-47be-bfad-ede739027c70/files/553420aa-8dd1-4e06-8ae8-2f2961194796.jpg"
                 alt="Станислав Цыбульский"
-                className="relative rounded-3xl shadow-2xl w-full object-cover object-top aspect-[3/4] border-4 border-white"
+                className="relative rounded-3xl shadow-2xl w-full object-cover object-top aspect-[3/4] border-4 border-primary/20"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-destructive/5">
+      <section className="py-20 px-4 bg-card">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-6 animate-fade-in">
             <Icon name="AlertCircle" size={48} className="mx-auto text-destructive" />
@@ -123,9 +123,9 @@ const Index = () => {
                 <span className="font-semibold text-secondary"> Причина — как работает ваше мышление.</span>
               </p>
             </div>
-            <Card className="bg-amber-50 border-amber-200 max-w-2xl mx-auto mt-8">
+            <Card className="bg-amber-950/20 border-amber-700/30 max-w-2xl mx-auto mt-8">
               <CardContent className="pt-6">
-                <p className="text-sm italic text-amber-900">
+                <p className="text-sm italic text-amber-200">
                   "78% предпринимателей испытывают выгорание, лишь 23% понимают причину" — Harvard Business Review
                 </p>
               </CardContent>
@@ -149,7 +149,7 @@ const Index = () => {
                 <span className="font-semibold text-destructive"> Предприниматели, не работающие с мышлением, в 3 раза чаще закрывают бизнес в течение 5 лет.</span>
               </p>
             </div>
-            <Card className="bg-gradient-to-br from-secondary/5 to-destructive/5 border-secondary/20">
+            <Card className="bg-gradient-to-br from-secondary/10 to-destructive/10 border-secondary/30">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
                   <Icon name="User" size={40} className="text-secondary flex-shrink-0" />
@@ -167,7 +167,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-accent/5">
+      <section className="py-20 px-4 bg-card">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-6 animate-fade-in">
             <Icon name="Sparkles" size={48} className="mx-auto text-accent" />
@@ -183,7 +183,7 @@ const Index = () => {
                 На мастер-классе вы узнаете практические техники для изменений.
               </p>
             </div>
-            <Card className="bg-accent/10 border-accent/30 max-w-2xl mx-auto mt-8">
+            <Card className="bg-accent/20 border-accent/40 max-w-2xl mx-auto mt-8">
               <CardContent className="pt-6">
                 <p className="text-sm italic text-accent-foreground">
                   "Когда я понял, что могу управлять мышлением, всё изменилось — рост бизнеса на 60%." — Дмитрий К.
@@ -246,7 +246,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="о-спикере" className="py-20 px-4 bg-gradient-to-br from-secondary/5 to-primary/5">
+      <section id="о-спикере" className="py-20 px-4 bg-gradient-to-br from-secondary/10 to-primary/10">
         <div className="container mx-auto max-w-4xl">
           <div className="grid md:grid-cols-3 gap-8 items-center animate-fade-in">
             <div className="md:col-span-1">
@@ -255,7 +255,7 @@ const Index = () => {
                 <img
                   src="https://cdn.poehali.dev/files/52396a75-116d-46ea-8a9f-3e1ea73ed3b2.png"
                   alt="Станислав Цыбульский"
-                  className="relative rounded-2xl shadow-2xl w-full aspect-[3/4] object-cover object-center border-4 border-white"
+                  className="relative rounded-2xl shadow-2xl w-full aspect-[3/4] object-cover object-center border-4 border-primary/20"
                 />
               </div>
             </div>
@@ -310,7 +310,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="отзывы" className="py-20 px-4 bg-muted/30">
+      <section id="отзывы" className="py-20 px-4 bg-card">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-4">
@@ -390,7 +390,7 @@ const Index = () => {
               Условия участия
             </h2>
           </div>
-          <Card className="bg-accent/5 border-accent/30">
+          <Card className="bg-accent/10 border-accent/40">
             <CardContent className="pt-6">
               <div className="text-center space-y-4">
                 <p className="text-lg text-muted-foreground">
@@ -417,7 +417,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-muted/30">
+      <section className="py-20 px-4 bg-card">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-4">
@@ -451,7 +451,7 @@ const Index = () => {
                 answer: 'Добавим вас в лист ожидания на следующий мастер-класс.'
               }
             ].map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg px-6 border">
+              <AccordionItem key={index} value={`item-${index}`} className="bg-background rounded-lg px-6 border">
                 <AccordionTrigger className="text-left font-semibold text-secondary hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
