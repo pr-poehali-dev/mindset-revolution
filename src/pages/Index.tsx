@@ -109,7 +109,22 @@ const Index = () => {
       <section className="py-20 px-4 bg-card">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-6 animate-fade-in">
-            <Icon name="AlertCircle" size={48} className="mx-auto text-destructive" />
+            <div className="mx-auto w-fit">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="mx-auto">
+                <path d="M12 2L12 16" stroke="url(#gradient1)" strokeWidth="3" strokeLinecap="round"/>
+                <circle cx="12" cy="21" r="1.5" fill="url(#gradient2)"/>
+                <defs>
+                  <linearGradient id="gradient1" x1="12" y1="2" x2="12" y2="16" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#ff6b35"/>
+                    <stop offset="1" stopColor="#f7931e"/>
+                  </linearGradient>
+                  <linearGradient id="gradient2" x1="12" y1="19.5" x2="12" y2="22.5" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#ff6b35"/>
+                    <stop offset="1" stopColor="#f7931e"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary">
               Знакомо ли вам это ощущение?
             </h2>
