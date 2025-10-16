@@ -101,9 +101,9 @@ const Index = () => {
             <div className="relative animate-scale-in">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-50" />
               <img
-                src="https://cdn.poehali.dev/projects/fe07abdb-01e7-47be-bfad-ede739027c70/files/553420aa-8dd1-4e06-8ae8-2f2961194796.jpg"
+                src="https://cdn.poehali.dev/files/9e060ad9-3d2c-4d43-9656-90dab1beaca8.jpg"
                 alt="Станислав Цыбульский"
-                className="relative rounded-3xl shadow-2xl w-full object-cover aspect-[3/4]"
+                className="relative rounded-3xl shadow-2xl w-full object-cover object-top aspect-[3/4] border-4 border-white"
               />
             </div>
           </div>
@@ -254,11 +254,14 @@ const Index = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="grid md:grid-cols-3 gap-8 items-center animate-fade-in">
             <div className="md:col-span-1">
-              <img
-                src="https://cdn.poehali.dev/projects/fe07abdb-01e7-47be-bfad-ede739027c70/files/553420aa-8dd1-4e06-8ae8-2f2961194796.jpg"
-                alt="Станислав Цыбульский"
-                className="rounded-2xl shadow-xl w-full aspect-square object-cover"
-              />
+              <div className="relative">
+                <div className="absolute -inset-3 bg-gradient-to-br from-primary/30 to-accent/30 rounded-3xl blur-xl opacity-40" />
+                <img
+                  src="https://cdn.poehali.dev/files/9e060ad9-3d2c-4d43-9656-90dab1beaca8.jpg"
+                  alt="Станислав Цыбульский"
+                  className="relative rounded-2xl shadow-2xl w-full aspect-square object-cover object-top border-4 border-white"
+                />
+              </div>
             </div>
             <div className="md:col-span-2 space-y-4">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary">
