@@ -322,13 +322,15 @@ const Index = () => {
                 name: 'Андрей Соколов',
                 role: 'Владелец маркетингового агентства',
                 text: 'Выручка выросла на 35%. Нашёл баланс между работой и семьёй.',
-                rating: 5
+                rating: 5,
+                photo: 'https://cdn.poehali.dev/projects/fe07abdb-01e7-47be-bfad-ede739027c70/files/33a2f3aa-27e0-49fa-9cb6-2f10f1273676.jpg'
               },
               {
                 name: 'Елена Марченко',
                 role: 'HR-директор',
                 text: 'Техники работают — улучшились отношения в команде.',
-                rating: 5
+                rating: 5,
+                photo: 'https://cdn.poehali.dev/projects/fe07abdb-01e7-47be-bfad-ede739027c70/files/e4cad2d8-fb26-48ac-9e38-ba73fea01586.jpg'
               }
             ].map((testimonial, index) => (
               <Card key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -340,11 +342,11 @@ const Index = () => {
                   </div>
                   <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                      <span className="text-white font-semibold text-lg">
-                        {testimonial.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
+                    <img 
+                      src={testimonial.photo} 
+                      alt={testimonial.name}
+                      className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
+                    />
                     <div>
                       <p className="font-semibold text-secondary">{testimonial.name}</p>
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
