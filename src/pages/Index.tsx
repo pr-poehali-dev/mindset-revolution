@@ -376,6 +376,60 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-4">
+              Видео отзывы участников
+            </h2>
+            <p className="text-lg text-muted-foreground">Настоящие истории изменений</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                name: 'Ирина Волкова',
+                role: 'Основатель IT-стартапа',
+                videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                preview: 'https://cdn.poehali.dev/projects/fe07abdb-01e7-47be-bfad-ede739027c70/files/e4cad2d8-fb26-48ac-9e38-ba73fea01586.jpg'
+              },
+              {
+                name: 'Максим Петров',
+                role: 'Управляющий партнёр',
+                videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                preview: 'https://cdn.poehali.dev/projects/fe07abdb-01e7-47be-bfad-ede739027c70/files/33a2f3aa-27e0-49fa-9cb6-2f10f1273676.jpg'
+              }
+            ].map((video, index) => (
+              <Card key={index} className="overflow-hidden animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-0">
+                  <div className="aspect-video bg-muted relative group cursor-pointer">
+                    <iframe
+                      className="w-full h-full"
+                      src={video.videoUrl}
+                      title={`Видео отзыв ${video.name}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-3">
+                      <img 
+                        src={video.preview} 
+                        alt={video.name}
+                        className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
+                      />
+                      <div>
+                        <p className="font-semibold text-secondary">{video.name}</p>
+                        <p className="text-sm text-muted-foreground">{video.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="регистрация" className="py-20 px-4 bg-gradient-to-br from-primary via-primary to-accent">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center space-y-8 animate-fade-in">
