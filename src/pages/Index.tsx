@@ -20,12 +20,6 @@ const Index = () => {
 
   const [currentH1, setCurrentH1] = useState(0);
 
-  const splitTextToNeon = (text: string) => {
-    return text.split('').map((char, index) => (
-      <span key={index}>{char}</span>
-    ));
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
@@ -61,8 +55,8 @@ const Index = () => {
                 </span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight neon-text">
-                {splitTextToNeon(h1Variants[currentH1])}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-secondary">
+                {h1Variants[currentH1]}
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground">
