@@ -1,31 +1,10 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Icon from '@/components/ui/icon';
-import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    status: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: 'Регистрация успешна!',
-      description: 'Мы отправили подтверждение на ваш email.',
-    });
-    setFormData({ name: '', email: '', phone: '', status: '' });
-  };
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -64,7 +43,7 @@ const Index = () => {
             ))}
           </div>
           <Button 
-            onClick={() => scrollToSection('регистрация')}
+            onClick={() => window.open('https://t.me/darya_tsybulskaya22', '_blank')}
             className="animate-pulse-gentle"
           >
             Записаться
@@ -95,7 +74,7 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   className="w-full md:w-auto text-lg px-8 py-6 animate-pulse-gentle"
-                  onClick={() => scrollToSection('регистрация')}
+                  onClick={() => window.open('https://t.me/darya_tsybulskaya22', '_blank')}
                 >
                   Забронировать место бесплатно
                 </Button>
@@ -383,74 +362,23 @@ const Index = () => {
 
       <section id="регистрация" className="py-20 px-4 bg-gradient-to-br from-primary via-primary to-accent">
         <div className="container mx-auto max-w-2xl">
-          <div className="text-center mb-12 animate-fade-in">
+          <div className="text-center space-y-8 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
               Зарегистрироваться на мастер-класс
             </h2>
-            <p className="text-white/90">Регистрация занимает 30 секунд. Подтверждение на email.</p>
+            <p className="text-white/90 text-lg">
+              Свяжитесь с нами в Telegram для быстрой регистрации
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-white text-primary hover:bg-white/90 text-lg px-12 py-7 animate-pulse-gentle shadow-2xl"
+              onClick={() => window.open('https://t.me/darya_tsybulskaya22', '_blank')}
+            >
+              <Icon name="Send" size={24} className="mr-2" />
+              Написать в Telegram
+            </Button>
+            <p className="text-white/70 text-sm">@darya_tsybulskaya22</p>
           </div>
-
-          <Card className="animate-scale-in">
-            <CardContent className="pt-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Имя *</Label>
-                  <Input
-                    id="name"
-                    placeholder="Ваше имя"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">E-mail *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="example@mail.ru"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Телефон</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+7 (999) 123-45-67"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="status">Статус *</Label>
-                  <Select value={formData.status} onValueChange={(value) => setFormData({ ...formData, status: value })} required>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Выберите статус" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="entrepreneur">Я предприниматель</SelectItem>
-                      <SelectItem value="employee">Я в найме</SelectItem>
-                      <SelectItem value="other">Другое</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Button type="submit" size="lg" className="w-full animate-pulse-gentle">
-                  Забронировать место бесплатно
-                </Button>
-
-                <p className="text-xs text-center text-muted-foreground">
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                </p>
-              </form>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
@@ -558,7 +486,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="bg-white text-primary hover:bg-white/90 animate-pulse-gentle"
-                onClick={() => scrollToSection('регистрация')}
+                onClick={() => window.open('https://t.me/darya_tsybulskaya22', '_blank')}
               >
                 Да, хочу изменить свою жизнь
               </Button>
