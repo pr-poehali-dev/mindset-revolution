@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
+import NeuralBackground from '@/components/NeuralBackground';
 
 const Index = () => {
   const scrollToSection = (id: string) => {
@@ -45,8 +46,9 @@ const Index = () => {
         </div>
       </nav>
 
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-        <div className="container mx-auto max-w-6xl">
+      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+        <NeuralBackground />
+        <div className="container mx-auto max-w-6xl relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in-up">
               <div className="inline-block">
