@@ -110,19 +110,6 @@ const RegistrationModal = ({ isOpen, onClose }: RegistrationModalProps) => {
               />
             </div>
 
-            <div>
-              <label className="text-sm font-semibold text-foreground mb-2 block">
-                Email (необязательно):
-              </label>
-              <Input
-                type="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="border-gray-300"
-              />
-            </div>
-
             {submitMessage && (
               <div className={`text-sm p-3 rounded ${
                 submitMessage.includes('Спасибо') 
