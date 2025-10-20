@@ -1,0 +1,48 @@
+{
+  "tests": [
+    {
+      "name": "Test save masterclass lead",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "phone": "+79991234567",
+        "email": "ivan@example.com",
+        "lead_type": "masterclass"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test save checklist lead without email",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Мария Петрова",
+        "phone": "+79997654321",
+        "lead_type": "checklist"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Test"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
