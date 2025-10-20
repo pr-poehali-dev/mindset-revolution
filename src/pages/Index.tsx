@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -24,6 +24,26 @@ const Index = () => {
 
   const [currentH1, setCurrentH1] = useState(0);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [registeredCount, setRegisteredCount] = useState(0);
+  const totalPlaces = 50;
+
+  useEffect(() => {
+    const fetchLeadsCount = async () => {
+      try {
+        const response = await fetch('https://functions.poehali.dev/fff3a25d-437c-4a70-ad94-d1d845d88a27');
+        const data = await response.json();
+        if (data.masterclass !== undefined) {
+          setRegisteredCount(data.masterclass);
+        }
+      } catch (error) {
+        console.error('Error fetching leads count:', error);
+      }
+    };
+
+    fetchLeadsCount();
+    const interval = setInterval(fetchLeadsCount, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -80,7 +100,9 @@ const Index = () => {
                 </Button>
                 <div className="flex items-center gap-2 text-sm">
                   <Icon name="Users" size={18} className="text-primary" />
-                  <span className="font-semibold text-primary">Осталось 23 места из 50</span>
+                  <span className="font-semibold text-primary">
+                    Осталось {totalPlaces - registeredCount} {totalPlaces - registeredCount === 1 ? 'место' : 'мест'} из {totalPlaces}
+                  </span>
                 </div>
               </div>
 
