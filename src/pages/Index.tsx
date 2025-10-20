@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
 import NeuralBackground from '@/components/NeuralBackground';
+import ConsultantWidget from '@/components/ConsultantWidget';
 
 const Index = () => {
   const scrollToSection = (id: string) => {
@@ -626,6 +627,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <ConsultantWidget />
     </div>
   );
 };
