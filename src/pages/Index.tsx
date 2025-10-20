@@ -5,6 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Icon from '@/components/ui/icon';
 import NeuralBackground from '@/components/NeuralBackground';
 import ConsultantWidget from '@/components/ConsultantWidget';
+import ChecklistGift from '@/components/ChecklistGift';
 
 const Index = () => {
   const scrollToSection = (id: string) => {
@@ -209,6 +210,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <ChecklistGift />
 
       <section id="программа" className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
