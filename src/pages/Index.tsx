@@ -6,6 +6,7 @@ import Icon from '@/components/ui/icon';
 import NeuralBackground from '@/components/NeuralBackground';
 import ConsultantWidget from '@/components/ConsultantWidget';
 import ChecklistGift from '@/components/ChecklistGift';
+import RegistrationModal from '@/components/RegistrationModal';
 
 const Index = () => {
   const scrollToSection = (id: string) => {
@@ -22,6 +23,7 @@ const Index = () => {
   ];
 
   const [currentH1, setCurrentH1] = useState(0);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -40,7 +42,7 @@ const Index = () => {
             ))}
           </div>
           <Button 
-            onClick={() => window.open('https://t.me/darya_tsybulskaya22', '_blank')}
+            onClick={() => setIsRegistrationOpen(true)}
             className="animate-pulse-gentle"
           >
             Записаться
@@ -72,7 +74,7 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   className="w-full md:w-auto text-lg px-8 py-6 animate-pulse-gentle"
-                  onClick={() => window.open('https://t.me/darya_tsybulskaya22', '_blank')}
+                  onClick={() => setIsRegistrationOpen(true)}
                 >
                   Забронировать место бесплатно
                 </Button>
@@ -560,7 +562,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="bg-white text-primary hover:bg-white/90 animate-pulse-gentle"
-                onClick={() => window.open('https://t.me/darya_tsybulskaya22', '_blank')}
+                onClick={() => setIsRegistrationOpen(true)}
               >
                 Да, хочу изменить свою жизнь
               </Button>
@@ -632,6 +634,10 @@ const Index = () => {
       </footer>
 
       <ConsultantWidget />
+      <RegistrationModal 
+        isOpen={isRegistrationOpen} 
+        onClose={() => setIsRegistrationOpen(false)} 
+      />
     </div>
   );
 };

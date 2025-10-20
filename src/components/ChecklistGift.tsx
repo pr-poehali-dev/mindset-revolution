@@ -7,13 +7,49 @@ import Icon from '@/components/ui/icon';
 const ChecklistGift = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Запрос чек-листа:%0A%0AEmail: ${email}`;
-    window.open(`https://t.me/darya_tsybulskaya22?text=${text}`, '_blank');
-    setEmail('');
-    setIsFormOpen(false);
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/e8840ffb-e4e3-4471-8e41-2c0555f725ed', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          email: email || undefined,
+          lead_type: 'checklist'
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitMessage('Спасибо! Чек-лист отправлен на вашу почту.');
+        setEmail('');
+        setName('');
+        setPhone('');
+        setTimeout(() => {
+          setIsFormOpen(false);
+          setSubmitMessage('');
+        }, 2000);
+      } else {
+        setSubmitMessage('Ошибка отправки. Попробуйте ещё раз.');
+      }
+    } catch (error) {
+      setSubmitMessage('Ошибка соединения. Проверьте интернет.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const checklist = [
@@ -79,28 +115,64 @@ const ChecklistGift = () => {
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                       <label className="text-sm font-semibold text-foreground mb-2 block">
-                        Укажите ваш email:
+                        Ваше имя:
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Иван Иванов"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                        className="border-gray-300"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-semibold text-foreground mb-2 block">
+                        Телефон:
+                      </label>
+                      <Input
+                        type="tel"
+                        placeholder="+7 999 123-45-67"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                        className="border-gray-300"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-semibold text-foreground mb-2 block">
+                        Email (необязательно):
                       </label>
                       <Input
                         type="email"
                         placeholder="your@email.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        required
                         className="border-gray-300"
                       />
                     </div>
+                    {submitMessage && (
+                      <div className={`text-sm p-3 rounded ${
+                        submitMessage.includes('Спасибо') 
+                          ? 'bg-green-50 text-green-700 border border-green-200' 
+                          : 'bg-red-50 text-red-700 border border-red-200'
+                      }`}>
+                        {submitMessage}
+                      </div>
+                    )}
                     <div className="flex gap-3">
                       <Button
                         type="submit"
-                        className="flex-1 bg-gradient-to-r from-primary to-accent hover:opacity-90"
+                        disabled={isSubmitting}
+                        className="flex-1 bg-gradient-to-r from-primary to-accent hover:opacity-90 disabled:opacity-50"
                       >
-                        Отправить
+                        {isSubmitting ? 'Отправка...' : 'Отправить'}
                       </Button>
                       <Button
                         type="button"
                         variant="outline"
                         onClick={() => setIsFormOpen(false)}
+                        disabled={isSubmitting}
                       >
                         Отмена
                       </Button>
