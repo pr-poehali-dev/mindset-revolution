@@ -25,6 +25,7 @@ const Index = () => {
   const [currentH1, setCurrentH1] = useState(0);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [registeredCount, setRegisteredCount] = useState(0);
+  const [isCounterAnimating, setIsCounterAnimating] = useState(false);
   const totalPlaces = 50;
 
   useEffect(() => {
@@ -32,8 +33,12 @@ const Index = () => {
       try {
         const response = await fetch('https://functions.poehali.dev/fff3a25d-437c-4a70-ad94-d1d845d88a27');
         const data = await response.json();
-        if (data.masterclass !== undefined) {
-          setRegisteredCount(data.masterclass);
+        if (data.masterclass !== undefined && data.masterclass !== registeredCount) {
+          setIsCounterAnimating(true);
+          setTimeout(() => {
+            setRegisteredCount(data.masterclass);
+            setTimeout(() => setIsCounterAnimating(false), 500);
+          }, 100);
         }
       } catch (error) {
         console.error('Error fetching leads count:', error);
@@ -43,7 +48,7 @@ const Index = () => {
     fetchLeadsCount();
     const interval = setInterval(fetchLeadsCount, 30000);
     return () => clearInterval(interval);
-  }, []);
+  }, [registeredCount]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -100,7 +105,9 @@ const Index = () => {
                 </Button>
                 <div className="flex items-center gap-2 text-sm">
                   <Icon name="Users" size={18} className="text-primary" />
-                  <span className="font-semibold text-primary">
+                  <span className={`font-semibold text-primary transition-all duration-300 ${
+                    isCounterAnimating ? 'scale-125 text-accent' : 'scale-100'
+                  }`}>
                     Осталось {totalPlaces - registeredCount} {totalPlaces - registeredCount === 1 ? 'место' : 'мест'} из {totalPlaces}
                   </span>
                 </div>
