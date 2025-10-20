@@ -117,12 +117,12 @@ const ChecklistGift = () => {
           </div>
 
           <div className="relative animate-scale-in">
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl opacity-50" />
-            <Card className="relative bg-black border-4 border-white/20 shadow-2xl">
+            <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/30 to-yellow-500/30 rounded-2xl blur-2xl opacity-60" />
+            <Card className="relative bg-black border-4 border-amber-400 shadow-2xl shadow-amber-500/20">
               <CardContent className="p-8">
                 <div className="space-y-6">
-                  <div className="text-center pb-4 border-b border-white/30">
-                    <h3 className="text-2xl font-heading font-bold text-white mb-2">
+                  <div className="text-center pb-4 border-b border-amber-400/50">
+                    <h3 className="text-2xl font-heading font-bold text-amber-400 mb-2">
                       ЧЕК-ЛИСТ
                     </h3>
                     <p className="text-sm text-white/90">
@@ -132,15 +132,15 @@ const ChecklistGift = () => {
 
                   {checklist.map((item, index) => (
                     <div key={index} className="flex items-start gap-3 group">
-                      <div className="w-5 h-5 border-2 border-white rounded flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-white transition-colors">
+                      <div className="w-5 h-5 border-2 border-amber-400 rounded flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-amber-400 transition-colors">
                         <Icon name="Check" size={12} className="text-black opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
                       <span className="text-sm text-white leading-snug">{item}</span>
                     </div>
                   ))}
 
-                  <div className="pt-4 border-t border-white/30 flex items-center justify-center gap-2 text-xs text-white/80">
-                    <Icon name="Sparkles" size={14} className="text-accent" />
+                  <div className="pt-4 border-t border-amber-400/50 flex items-center justify-center gap-2 text-xs text-amber-400">
+                    <Icon name="Sparkles" size={14} className="text-amber-400" />
                     <span>Готовый инструмент для работы</span>
                   </div>
                 </div>
