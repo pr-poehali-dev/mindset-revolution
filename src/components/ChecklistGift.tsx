@@ -118,28 +118,28 @@ const ChecklistGift = () => {
 
           <div className="relative animate-scale-in">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl opacity-50" />
-            <Card className="relative bg-white border-4 border-primary/10 shadow-2xl">
+            <Card className="relative bg-black border-4 border-white/20 shadow-2xl">
               <CardContent className="p-8">
                 <div className="space-y-6">
-                  <div className="text-center pb-4 border-b border-gray-200">
-                    <h3 className="text-2xl font-heading font-bold text-secondary mb-2">
+                  <div className="text-center pb-4 border-b border-white/30">
+                    <h3 className="text-2xl font-heading font-bold text-white mb-2">
                       ЧЕК-ЛИСТ
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-white/90">
                       Трансформация мышления предпринимателя
                     </p>
                   </div>
 
                   {checklist.map((item, index) => (
                     <div key={index} className="flex items-start gap-3 group">
-                      <div className="w-5 h-5 border-2 border-primary rounded flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary transition-colors">
-                        <Icon name="Check" size={12} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="w-5 h-5 border-2 border-white rounded flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-white transition-colors">
+                        <Icon name="Check" size={12} className="text-black opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
-                      <span className="text-sm text-foreground leading-snug">{item}</span>
+                      <span className="text-sm text-white leading-snug">{item}</span>
                     </div>
                   ))}
 
-                  <div className="pt-4 border-t border-gray-200 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                  <div className="pt-4 border-t border-white/30 flex items-center justify-center gap-2 text-xs text-white/80">
                     <Icon name="Sparkles" size={14} className="text-accent" />
                     <span>Готовый инструмент для работы</span>
                   </div>
