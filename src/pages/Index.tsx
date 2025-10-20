@@ -573,12 +573,12 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 px-4 bg-secondary text-white">
+      <footer className="py-12 px-4 bg-black text-white">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
               <h3 className="font-heading font-bold text-xl mb-4">Контакты</h3>
-              <div className="space-y-2 text-white/80">
+              <div className="space-y-2 text-white/90">
                 <div className="flex items-center gap-2">
                   <Icon name="Mail" size={18} />
                   <span>info@prozhizn.ru</span>
@@ -596,7 +596,7 @@ const Index = () => {
 
             <div>
               <h3 className="font-heading font-bold text-xl mb-4">Программа "ПроЖИзнь"</h3>
-              <p className="text-white/80">
+              <p className="text-white/90">
                 Комплексная программа личностного и профессионального развития для предпринимателей
               </p>
             </div>
@@ -617,11 +617,11 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
+          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
             <p>© 2025 Станислав Цыбульский. Программа "ПроЖИзнь"</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">Политика конфиденциальности</a>
-              <a href="#" className="hover:text-white transition-colors">Пользовательское соглашение</a>
+              <a href="#" className="hover:text-white/90 transition-colors">Политика конфиденциальности</a>
+              <a href="#" className="hover:text-white/90 transition-colors">Пользовательское соглашение</a>
             </div>
           </div>
         </div>
