@@ -1,101 +1,57 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
 const ConsultantWidget = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    message: ''
-  });
+  const [showTooltip, setShowTooltip] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const text = `Новая заявка с сайта:%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}%0AСообщение: ${formData.message}`;
-    window.open(`https://t.me/darya_tsybulskaya22?text=${text}`, '_blank');
-    setFormData({ name: '', phone: '', message: '' });
-    setIsOpen(false);
+  const openTelegram = () => {
+    window.open('https://t.me/darya_tsybulskaya22', '_blank');
   };
 
   return (
-    <>
-      <div className="fixed bottom-6 right-6 z-50">
-        {isOpen && (
-          <Card className="mb-4 w-80 md:w-96 shadow-2xl animate-fade-in">
-            <CardHeader className="bg-gradient-to-r from-primary to-accent text-white rounded-t-lg">
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-lg font-heading">Онлайн-консультант</CardTitle>
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  className="hover:bg-white/20 text-white"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Icon name="X" size={20} />
-                </Button>
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      {showTooltip && (
+        <Card className="shadow-xl animate-fade-in mr-20">
+          <CardContent className="p-4 max-w-xs">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center flex-shrink-0">
+                <Icon name="User" size={20} className="text-white" />
               </div>
-              <p className="text-sm text-white/90 mt-2">
-                Оставьте заявку, и мы свяжемся с вами в ближайшее время
-              </p>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Input
-                    placeholder="Ваше имя"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="border-gray-300"
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="tel"
-                    placeholder="Телефон"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    required
-                    className="border-gray-300"
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    placeholder="Ваш вопрос или комментарий"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={3}
-                    className="border-gray-300 resize-none"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90"
-                >
-                  Отправить заявку
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        )}
+              <div className="flex-1">
+                <p className="font-semibold text-sm mb-1">Онлайн-консультант</p>
+                <p className="text-sm text-muted-foreground">
+                  Здравствуйте! Есть вопросы о мастер-классе? Напишите мне в Telegram 👋
+                </p>
+              </div>
+              <Button
+                size="icon"
+                variant="ghost"
+                className="h-6 w-6 flex-shrink-0"
+                onClick={() => setShowTooltip(false)}
+              >
+                <Icon name="X" size={16} />
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
+      <div className="relative">
         <Button
           size="lg"
           className="bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-2xl rounded-full h-16 w-16 p-0 animate-pulse-gentle"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={openTelegram}
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setTimeout(() => setShowTooltip(false), 3000)}
         >
-          {isOpen ? (
-            <Icon name="X" size={28} />
-          ) : (
-            <Icon name="MessageCircle" size={28} />
-          )}
+          <Icon name="Send" size={28} />
         </Button>
+        
+        <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
       </div>
-    </>
+    </div>
   );
 };
 
