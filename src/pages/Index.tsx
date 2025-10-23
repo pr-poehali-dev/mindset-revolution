@@ -620,7 +620,7 @@ const Index = () => {
           </div>
           <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-xl border border-border">
             <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=131.989449%2C43.127859&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNTI4ODI5MjY1EmnQoNC-0YHRgdC40Y8sINCf0YDQuNC80L7RgNGB0LrQuNC5INC60YDQsNC5LCDQktC70LDQtNC40LLQvtGB0YLQvtC6LCDRg9C70LjRhtCwINCi0LjQs9GA0L7QstCw0Y8sIDE20LAiCg0YPiJCFYQeSUI%2C&z=17"
+              src="https://yandex.ru/map-widget/v1/?ll=131.876061%2C43.113588&z=17&pt=131.876061%2C43.113588%2Cpm2rdm"
               width="100%"
               height="100%"
               frameBorder="0"
